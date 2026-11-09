@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryPilot | Database Intelligence Platform</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef5ff',
+                            100: '#dbeafe',
+                            500: '#3978e8',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#172554'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f6f8fc] text-slate-800 font-sans">
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand-area">
+            <div class="brand-logo">
+                <i class="fa-solid">Q</i>
+            </div>
+            <div>
+                <h1 class="brand-name">QueryPilot</h1>
+                <p class="brand-subtitle">DATABASE INTELLIGENCE</p>
+            </div>
+        </div>
+
+        <div class="workspace-switch">
+            <div class="workspace-icon">QP</div>
+            <div class="flex-1 min-w-0">
+                <p class="text-xs text-slate-400">WORKSPACE</p>
+                <p class="text-sm font-semibold truncate">My Workspace</p>
+            </div>
+            <span class="text-slate-400">⌄</span>
+        </div>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="nav-menu">
+            <a href="#overview" class="nav-item active">
+                <span class="nav-icon">◫</span>
+                <span>Dashboard Overview</span>
+            </a>
+
+            <a href="#explorer" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Database Explorer</span>
+            </a>
+
+            <a href="#connections" class="nav-item">
+                <span class="nav-icon">⌘</span>
+                <span>Connection Manager</span>
+            </a>
+
+            <a href="#analyzer" class="nav-item">
+                <span class="nav-icon">⌕</span>
+                <span>SQL Query Analyzer</span>
+            </a>
+
+            <a href="#optimizer" class="nav-item">
+                <span class="nav-icon">✧</span>
+                <span>Query Optimizer</span>
+            </a>
+
+            <a href="#index-advisor" class="nav-item">
+                <span class="nav-icon">⌗</span>
+                <span>Index Advisor</span>
+            </a>
+
+            <a href="#execution-plan" class="nav-item">
+                <span class="nav-icon">⑂</span>
+                <span>Execution Plan</span>
+            </a>
+
+            <a href="#security" class="nav-item">
+                <span class="nav-icon">⬡</span>
+                <span>Security Center</span>
+            </a>
+
+            <a href="#performance" class="nav-item">
+                <span class="nav-icon">⌁</span>
+                <span>Performance Lab</span>
+            </a>
+
+            <a href="#reports" class="nav-item">
+                <span class="nav-icon">▧</span>
+                <span>Reports & Library</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-label mt-7">COLLABORATION</div>
+
+        <nav class="nav-menu">
+            <a href="#team" class="nav-item">
+                <span class="nav-icon">♧</span>
+                <span>Project Members</span>
+            </a>
+
+            <a href="#activity" class="nav-item">
+                <span class="nav-icon">◷</span>
+                <span>Activity Log</span>
+            </a>
+
+            <a href="#comments" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Query Comments</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <div class="help-icon">?</div>
+                <div>
+                    <p class="font-semibold text-sm">Need help?</p>
+                    <p class="text-xs text-slate-400 mt-1">Explore documentation</p>
+                </div>
+                <span class="ml-auto text-slate-400">↗</span>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar">AJ</div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-semibold truncate">Ali Juwel</p>
+                    <p class="text-xs text-slate-400">Administrator</p>
+                </div>
+                <span class="text-slate-400">•••</span>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <div class="breadcrumb">
+                    Workspace <span>/</span> Overview
+                </div>
+                <p class="text-sm text-slate-500 mt-1">
+                    Monitor, analyze and optimize your database performance.
+                </p>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Operational
+                </div>
+
+                <button class="icon-button" title="Notifications">
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
+
+                <button class="top-avatar">AJ</button>
+            </div>
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <div class="page-content" id="overview">
+
+            <!-- PAGE TITLE -->
+            <section class="page-heading">
+                <div>
+                    <p class="eyebrow">MONDAY, NOVEMBER 10, 2026</p>
+                    <h2>Dashboard Overview</h2>
+                    <p class="text-slate-500 text-sm mt-1">
+                        Here's what's happening with your database today.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <button class="secondary-button">↻ Refresh</button>
+                    <button class="primary-button">＋ New Analysis</button>
+                </div>
+            </section>
+
+
+            <!-- DATABASE CONNECTION STATUS -->
+            <section class="connection-banner" id="connections">
+                <div class="flex items-center gap-3">
+                    <div class="postgres-icon">P</div>
+                    <div>
+                        <p class="font-semibold text-sm">Production Database</p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            PostgreSQL · localhost:5432 · querypilot_db
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-5">
+                    <div class="connection-info">
+                        <span class="status-dot"></span>
+                        Connected
+                    </div>
+                    <div class="hidden md:block text-xs text-slate-400">
+                        Last checked: 2 minutes ago
+                    </div>
+                    <button class="text-sm font-semibold text-blue-600">
+                        Manage →
+                    </button>
+                </div>
+            </section>
+
+
+            <!-- KPI CARDS -->
+            <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Total Queries Analyzed</span>
+                        <span class="stat-icon blue">⌕</span>
+                    </div>
+                    <div class="stat-value">2,481</div>
+                    <div class="stat-bottom">
+                        <span class="trend-positive">↗ 12.8%</span>
+                        <span>vs last month</span>
+                    </div>
+                    <div class="mini-bars">
+                        <span style="height:30%"></span>
+                        <span style="height:48%"></span>
+                        <span style="height:38%"></span>
+                        <span style="height:64%"></span>
+                        <span style="height:52%"></span>
+                        <span style="height:78%"></span>
+                        <span style="height:100%"></span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Optimization Rate</span>
+                        <span class="stat-icon green">✧</span>
+                    </div>
+                    <div class="stat-value">76.4%</div>
+                    <div class="stat-bottom">
+                        <span class="trend-positive">↗ 8.2%</span>
+                        <span>vs last month</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill green-fill" style="width:76.4%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Index Recommendations</span>
+                        <span class="stat-icon purple">⌗</span>
+                    </div>
+                    <div class="stat-value">148</div>
+                    <div class="stat-bottom">
+                        <span class="trend-positive">↗ 18 new</span>
+                        <span>this month</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill purple-fill" style="width:65%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span>Security Findings</span>
+                        <span class="stat-icon orange">⬡</span>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-bottom">
+                        <span class="trend-negative">3 High severity</span>
+                        <span>need attention</span>
+                    </div>
+                    <div class="security-mini">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- CHARTS ROW -->
+            <section class="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
+
+                <!-- PERFORMANCE TREND -->
+                <div class="panel xl:col-span-2">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Query Performance Trend</h3>
+                            <p class="panel-subtitle">
+                                Average execution time over time
+                            </p>
+                        </div>
+
+                        <select class="select-control">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+
+                    <div class="chart-legend">
+                        <span><i class="legend-dot blue-dot"></i> Before Optimization</span>
+                        <span><i class="legend-dot green-dot"></i> After Optimization</span>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="y-labels">
+                            <span>500 ms</span>
+                            <span>400 ms</span>
+                            <span>300 ms</span>
+                            <span>200 ms</span>
+                            <span>100 ms</span>
+                            <span>0 ms</span>
+                        </div>
+
+                        <div class="chart-area">
+                            <div class="chart-grid">
+                                <span></span><span></span><span></span>
+                                <span></span><span></span><span></span>
+                            </div>
+
+                            <svg viewBox="0 0 700 230" preserveAspectRatio="none"
+                                 class="performance-chart">
+
+                                <defs>
+                                    <linearGradient id="blueArea" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#4385f5" stop-opacity=".20"/>
+                                        <stop offset="100%" stop-color="#4385f5" stop-opacity="0"/>
+                                    </linearGradient>
+                                    <linearGradient id="greenArea" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#16a477" stop-opacity=".18"/>
+                                        <stop offset="100%" stop-color="#16a477" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <path d="M0 45 C65 55 65 80 140 70 S220 30 280 65 S370 90 420 60 S520 25 560 55 S640 75 700 30 L700 230 L0 230 Z"
+                                      fill="url(#blueArea)"/>
+
+                                <path d="M0 155 C70 160 85 145 140 150 S220 125 280 145 S370 150 420 135 S520 150 560 130 S640 145 700 120 L700 230 L0 230 Z"
+                                      fill="url(#greenArea)"/>
+
+                                <path d="M0 45 C65 55 65 80 140 70 S220 30 280 65 S370 90 420 60 S520 25 560 55 S640 75 700 30"
+                                      fill="none" stroke="#4385f5" stroke-width="3"
+                                      stroke-linecap="round"/>
+
+                                <path d="M0 155 C70 160 85 145 140 150 S220 125 280 145 S370 150 420 135 S520 150 560 130 S640 145 700 120"
+                                      fill="none" stroke="#16a477" stroke-width="3"
+                                      stroke-linecap="round"/>
+
+                                <circle cx="420" cy="60" r="5" fill="#4385f5" stroke="white" stroke-width="2"/>
+                                <circle cx="420" cy="135" r="5" fill="#16a477" stroke="white" stroke-width="2"/>
+                            </svg>
+
+                            <div class="x-labels">
+                                <span>Nov 04</span>
+                                <span>Nov 05</span>
+                                <span>Nov 06</span>
+                                <span>Nov 07</span>
+                                <span>Nov 08</span>
+                                <span>Nov 09</span>
+                                <span>Nov 10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- QUERY HEALTH -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Query Health</h3>
+                            <p class="panel-subtitle">Performance distribution</p>
+                        </div>
+                        <button class="more-button">•••</button>
+                    </div>
+
+                    <div class="health-chart-wrap">
+                        <div class="donut-chart">
+                            <div class="donut-center">
+                                <strong>2,481</strong>
+                                <span>Total Queries</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="health-legend">
+                        <div>
+                            <span class="legend-dot green-dot"></span>
+                            <span>Healthy</span>
+                            <strong>1,624</strong>
+                            <small>65.5%</small>
+                        </div>
+                        <div>
+                            <span class="legend-dot yellow-dot"></span>
+                            <span>Needs Review</span>
+                            <strong>612</strong>
+                            <small>24.7%</small>
+                        </div>
+                        <div>
+                            <span class="legend-dot red-dot"></span>
+                            <span>Critical</span>
+                            <strong>245</strong>
+                            <small>9.8%</small>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- OPTIMIZATION SPOTLIGHT -->
+            <section class="panel mt-6" id="optimizer">
+
+                <div class="panel-header">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="spotlight-icon">✧</span>
+                            <h3>Optimization Spotlight</h3>
+                            <span class="tag tag-green">Improved</span>
+                        </div>
+                        <p class="panel-subtitle">
+                            Compare original and optimized query execution
+                        </p>
+                    </div>
+                    <button class="secondary-button">View Details →</button>
+                </div>
+
+                <div class="comparison-stats">
+                    <div>
+                        <span>Original estimated cost</span>
+                        <strong>1,248.50</strong>
+                    </div>
+                    <div class="comparison-arrow">→</div>
+                    <div>
+                        <span>Optimized estimated cost</span>
+                        <strong class="text-green-600">312.20</strong>
+                    </div>
+                    <div class="improvement-badge">
+                        ↓ 75% estimated cost
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-5">
+
+                    <div class="sql-box">
+                        <div class="sql-header">
+                            <span>ORIGINAL QUERY</span>
+                            <span class="tag tag-red">Needs optimization</span>
+                        </div>
+
+                        <pre><code><span class="sql-purple">SELECT</span> *
+<span class="sql-purple">FROM</span> orders
+<span class="sql-purple">WHERE</span>
+  LOWER(customer_email) =
+  <span class="sql-orange">'user@example.com'</span>
+<span class="sql-purple">ORDER BY</span> created_at;</code></pre>
+
+                        <div class="sql-footer">
+                            <span>Full scan risk</span>
+                            <span>Higher estimated cost</span>
+                        </div>
+                    </div>
+
+                    <div class="sql-box optimized">
+                        <div class="sql-header">
+                            <span>OPTIMIZED QUERY</span>
+                            <span class="tag tag-green">Suggested</span>
+                        </div>
+
+                        <pre><code><span class="sql-purple">SELECT</span> order_id,
+       customer_email,
+       created_at
+<span class="sql-purple">FROM</span> orders
+<span class="sql-purple">WHERE</span> customer_email =
+  <span class="sql-orange">'user@example.com'</span>
+<span class="sql-purple">ORDER BY</span> created_at;</code></pre>
+
+                        <div class="sql-footer">
+                            <span>Targeted lookup</span>
+                            <span>Lower estimated cost</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="disclaimer">
+                    * Illustrative example. Verify result equivalence and benchmark under identical conditions before claiming actual performance improvement.
+                </p>
+
+            </section>
+
+
+            <!-- SLOW QUERIES + INDEX ADVISOR -->
+            <section class="grid grid-cols-1 xl:grid-cols-5 gap-5 mt-6">
+
+                <div class="panel xl:col-span-3">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Queries to Fix Next</h3>
+                            <p class="panel-subtitle">Queries with the highest estimated cost</p>
+                        </div>
+                        <a href="#analyzer" class="text-sm font-semibold text-blue-600">
+                            View all →
+                        </a>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>QUERY</th>
+                                    <th>EST. COST</th>
+                                    <th>HEALTH</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>get_customer_orders</strong>
+                                        <small>orders · SELECT</small>
+                                    </td>
+                                    <td class="font-mono">1,248.50</td>
+                                    <td><span class="tag tag-red">Critical</span></td>
+                                    <td><button class="row-action">↗</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>fetch_product_list</strong>
+                                        <small>products · SELECT</small>
+                                    </td>
+                                    <td class="font-mono">856.20</td>
+                                    <td><span class="tag tag-yellow">Warning</span></td>
+                                    <td><button class="row-action">↗</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>user_activity_report</strong>
+                                        <small>activity · SELECT</small>
+                                    </td>
+                                    <td class="font-mono">642.80</td>
+                                    <td><span class="tag tag-yellow">Warning</span></td>
+                                    <td><button class="row-action">↗</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>monthly_revenue</strong>
+                                        <small>payments · SELECT</small>
+                                    </td>
+                                    <td class="font-mono">428.10</td>
+                                    <td><span class="tag tag-green">Healthy</span></td>
+                                    <td><button class="row-action">↗</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <!-- INDEX ADVISOR -->
+                <div class="panel xl:col-span-2" id="index-advisor">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Index Advisor</h3>
+                            <p class="panel-subtitle">Suggested index improvements</p>
+                        </div>
+                        <span class="stat-icon purple">⌗</span>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <div class="recommendation-icon">＋</div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-semibold text-sm">orders.customer_email</p>
+                            <p class="text-xs text-slate-400 mt-1">B-tree index · Single column</p>
+                            <code class="recommendation-code">
+                                CREATE INDEX idx_orders_email
+                                ON orders(customer_email);
+                            </code>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="tag tag-green">High benefit</span>
+                                <span class="text-xs text-slate-400">Low write impact</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-item">
+                        <div class="recommendation-icon purple-bg">＋</div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-semibold text-sm">orders.status, created_at</p>
+                            <p class="text-xs text-slate-400 mt-1">B-tree · Composite index</p>
+                            <code class="recommendation-code">
+                                CREATE INDEX idx_orders_status_date
+                                ON orders(status, created_at);
+                            </code>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="tag tag-yellow">Medium benefit</span>
+                                <span class="text-xs text-slate-400">Medium write impact</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="full-width-button">
+                        View All Recommendations →
+                    </button>
+                </div>
+
+            </section>
+
+
+            <!-- EXECUTION PLAN + SECURITY -->
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-5 mt-6">
+
+                <!-- EXECUTION PLAN -->
+                <div class="panel" id="execution-plan">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Execution Plan Overview</h3>
+                            <p class="panel-subtitle">Latest analyzed query plan</p>
+                        </div>
+                        <button class="more-button">•••</button>
+                    </div>
+
+                    <div class="plan-query">
+                        <span class="plan-type">SELECT</span>
+                        <span class="font-mono text-xs text-slate-500">
+                            get_customer_orders
+                        </span>
+                    </div>
+
+                    <div class="plan-tree">
+                        <div class="plan-node plan-root">
+                            <div class="plan-node-title">
+                                <span class="plan-node-dot"></span>
+                                Sort
+                            </div>
+                            <small>Cost: 312.20 · Rows: 120</small>
+                        </div>
+
+                        <div class="tree-branch">
+                            <div class="plan-node plan-child">
+                                <div class="plan-node-title">
+                                    <span class="plan-node-dot blue-node"></span>
+                                    Index Scan
+                                </div>
+                                <small>Cost: 280.40 · Rows: 120</small>
+                            </div>
+                        </div>
+
+                        <div class="tree-branch second-branch">
+                            <div class="plan-node plan-leaf">
+                                <div class="plan-node-title">
+                                    <span class="plan-node-dot green-node"></span>
+                                    Index Cond
+                                </div>
+                                <small>customer_email = parameter</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="plan-footer">
+                        <span>3 plan nodes</span>
+                        <span>PostgreSQL EXPLAIN</span>
+                        <a href="#analyzer">Explore plan →</a>
+                    </div>
+                </div>
+
+
+                <!-- SECURITY -->
+                <div class="panel" id="security">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Security Center</h3>
+                            <p class="panel-subtitle">SQL security analysis findings</p>
+                        </div>
+                        <span class="tag tag-orange">12 findings</span>
+                    </div>
+
+                    <div class="security-score">
+                        <div class="security-score-number">
+                            <strong>84</strong>
+                            <span>/ 100</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold text-sm">Security Score</p>
+                            <p class="text-xs text-slate-400 mt-1">
+                                Some queries require security review.
+                            </p>
+                            <div class="progress-track mt-3">
+                                <div class="progress-fill green-fill" style="width:84%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-findings">
+                        <div class="finding-row">
+                            <span class="finding-symbol red">!</span>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Potential SQL Injection Pattern</p>
+                                <p class="text-xs text-slate-400">Query: user_search · 10 minutes ago</p>
+                            </div>
+                            <span class="tag tag-red">High</span>
+                        </div>
+
+                        <div class="finding-row">
+                            <span class="finding-symbol yellow">!</span>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Unsafe Dynamic SQL Construction</p>
+                                <p class="text-xs text-slate-400">Query: product_filter · 1 hour ago</p>
+                            </div>
+                            <span class="tag tag-yellow">Medium</span>
+                        </div>
+
+                        <div class="finding-row">
+                            <span class="finding-symbol blue">i</span>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Query Validation Recommended</p>
+                                <p class="text-xs text-slate-400">Query: report_export · 3 hours ago</p>
+                            </div>
+                            <span class="tag tag-blue">Info</span>
+                        </div>
+                    </div>
+
+                    <button class="full-width-button">
+                        Open Security Center →
+                    </button>
+                </div>
+
+            </section>
+
+
+            <!-- PERFORMANCE LAB -->
+            <section class="panel mt-6" id="performance">
+                <div class="panel-header">
+                    <div>
+                        <h3>Performance Lab</h3>
+                        <p class="panel-subtitle">
+                            Compare index experiments and benchmark results
+                        </p>
+                    </div>
+                    <button class="secondary-button">View Experiments →</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                    <div class="experiment-card">
+                        <div class="experiment-top">
+                            <span class="tag tag-blue">Experiment #024</span>
+                            <span class="text-xs text-slate-400">Completed</span>
+                        </div>
+                        <h4>Customer Email Index</h4>
+                        <p>orders.customer_email</p>
+                        <div class="experiment-comparison">
+                            <div>
+                                <span>Baseline</span>
+                                <strong>182 ms</strong>
+                            </div>
+                            <span class="text-green-600">→</span>
+                            <div>
+                                <span>Tested</span>
+                                <strong class="text-green-600">64 ms</strong>
+                            </div>
+                        </div>
+                        <div class="experiment-result">
+                            <span>Measured execution time</span>
+                            <strong>64.8% faster</strong>
+                        </div>
+                    </div>
+
+                    <div class="experiment-card">
+                        <div class="experiment-top">
+                            <span class="tag tag-purple">Experiment #023</span>
+                            <span class="text-xs text-slate-400">Completed</span>
+                        </div>
+                        <h4>Composite Order Index</h4>
+                        <p>orders.status + created_at</p>
+                        <div class="experiment-comparison">
+                            <div>
+                                <span>Baseline</span>
+                                <strong>240 ms</strong>
+                            </div>
+                            <span class="text-green-600">→</span>
+                            <div>
+                                <span>Tested</span>
+                                <strong class="text-green-600">98 ms</strong>
+                            </div>
+                        </div>
+                        <div class="experiment-result">
+                            <span>Measured execution time</span>
+                            <strong>59.1% faster</strong>
+                        </div>
+                    </div>
+
+                    <div class="experiment-card new-experiment">
+                        <div class="new-experiment-icon">＋</div>
+                        <h4>New Index Experiment</h4>
+                        <p>Test a suggested index and compare its impact.</p>
+                        <button class="primary-button mt-4">Create Experiment</button>
+                    </div>
+
+                </div>
+
+                <p class="disclaimer">
+                    * Sample benchmark values for interface demonstration only. Actual measurements require controlled tests on a test database.
+                </p>
+            </section>
+
+
+            <!-- SCHEMA + TEAM -->
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-5 mt-6">
+
+                <!-- SCHEMA SNAPSHOT -->
+                <div class="panel" id="explorer">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Database Schema Explorer</h3>
+                            <p class="panel-subtitle">Latest schema snapshot</p>
+                        </div>
+                        <button class="text-sm font-semibold text-blue-600">Explore →</button>
+                    </div>
+
+                    <div class="schema-database">
+                        <span class="database-symbol">▤</span>
+                        <div>
+                            <p class="font-semibold text-sm">querypilot_db</p>
+                            <p class="text-xs text-slate-400">PostgreSQL · 8 tables</p>
+                        </div>
+                        <span class="ml-auto tag tag-green">Synced</span>
+                    </div>
+
+                    <div class="schema-table-list">
+                        <div><span>▦</span> users <small>8 columns</small></div>
+                        <div><span>▦</span> projects <small>6 columns</small></div>
+                        <div><span>▦</span> queries <small>7 columns</small></div>
+                        <div><span>▦</span> analysis_runs <small>9 columns</small></div>
+                        <div><span>▦</span> recommendations <small>10 columns</small></div>
+                    </div>
+
+                    <div class="schema-footer">
+                        <span>Snapshot: Nov 10, 2026</span>
+                        <a href="#explorer">Compare schema history →</a>
+                    </div>
+                </div>
+
+
+                <!-- TEAM COLLABORATION -->
+                <div class="panel" id="team">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Team Collaboration</h3>
+                            <p class="panel-subtitle">Project members and recent comments</p>
+                        </div>
+                        <button class="secondary-button">＋ Invite Member</button>
+                    </div>
+
+                    <div class="team-members">
+                        <div class="team-member">
+                            <div class="avatar avatar-blue">AJ</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Ali Juwel</p>
+                                <p class="text-xs text-slate-400">Project Owner</p>
+                            </div>
+                            <span class="tag tag-blue">Owner</span>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="avatar avatar-purple">SR</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Sarah Rahman</p>
+                                <p class="text-xs text-slate-400">Database Analyst</p>
+                            </div>
+                            <span class="tag tag-green">Editor</span>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="avatar avatar-orange">MK</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">Mahin Khan</p>
+                                <p class="text-xs text-slate-400">Developer</p>
+                            </div>
+                            <span class="tag tag-yellow">Viewer</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-preview" id="comments">
+                        <div class="flex items-center gap-2">
+                            <div class="avatar avatar-purple small-avatar">SR</div>
+                            <p class="text-xs font-semibold">Sarah Rahman</p>
+                            <span class="text-xs text-slate-400">· 25 min ago</span>
+                        </div>
+                        <p class="text-sm text-slate-600 mt-2">
+                            The composite index suggestion looks promising. We should test it with a representative workload.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACTIVITY + RECENT ANALYSIS -->
+            <section class="grid grid-cols-1 xl:grid-cols-2 gap-5 mt-6">
+
+                <!-- RECENT ANALYSIS -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Recent Analysis</h3>
+                            <p class="panel-subtitle">Latest query analysis activities</p>
+                        </div>
+                        <a href="#analyzer" class="text-sm font-semibold text-blue-600">
+                            View history →
+                        </a>
+                    </div>
+
+                    <div class="recent-list">
+                        <div class="recent-item">
+                            <div class="recent-icon blue">⌕</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">get_customer_orders</p>
+                                <p class="text-xs text-slate-400">SQL Query Analysis</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="tag tag-green">Completed</span>
+                                <p class="text-xs text-slate-400 mt-1">5 min ago</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-item">
+                            <div class="recent-icon purple">⌗</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">product_search_query</p>
+                                <p class="text-xs text-slate-400">Index Recommendation</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="tag tag-green">Completed</span>
+                                <p class="text-xs text-slate-400 mt-1">22 min ago</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-item">
+                            <div class="recent-icon orange">⬡</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">user_search_query</p>
+                                <p class="text-xs text-slate-400">Security Analysis</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="tag tag-yellow">Review</span>
+                                <p class="text-xs text-slate-400 mt-1">1 hour ago</p>
+                            </div>
+                        </div>
+
+                        <div class="recent-item">
+                            <div class="recent-icon green">⌁</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-semibold">monthly_revenue_report</p>
+                                <p class="text-xs text-slate-400">Performance Benchmark</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="tag tag-green">Completed</span>
+                                <p class="text-xs text-slate-400 mt-1">3 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ACTIVITY LOG -->
+                <div class="panel" id="activity">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Activity Log</h3>
+                            <p class="panel-subtitle">Recent workspace activities</p>
+                        </div>
+                        <a href="#activity" class="text-sm font-semibold text-blue-600">
+                            View all →
+                        </a>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker blue-marker"></div>
+                            <div>
+                                <p class="text-sm">
+                                    <strong>Ali Juwel</strong> analyzed a SQL query
+                                </p>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    get_customer_orders · 5 minutes ago
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker purple-marker"></div>
+                            <div>
+                                <p class="text-sm">
+                                    <strong>Sarah Rahman</strong> added a comment
+                                </p>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    product_search_query · 25 minutes ago
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker green-marker"></div>
+                            <div>
+                                <p class="text-sm">
+                                    <strong>Ali Juwel</strong> created an index experiment
+                                </p>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    Experiment #024 · 1 hour ago
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker orange-marker"></div>
+                            <div>
+                                <p class="text-sm">
+                                    <strong>Mahin Khan</strong> joined the project
+                                </p>
+                                <p class="text-xs text-slate-400 mt-1">
+                                    My Workspace · Yesterday
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- REPORTS -->
+            <section class="panel mt-6 mb-8" id="reports">
+                <div class="panel-header">
+                    <div>
+                        <h3>Reports & Library</h3>
+                        <p class="panel-subtitle">Recently generated reports</p>
+                    </div>
+                    <button class="primary-button">＋ Generate Report</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>REPORT NAME</th>
+                                <th>TYPE</th>
+                                <th>CREATED BY</th>
+                                <th>DATE</th>
+                                <th>ACCESS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Query Performance Summary</strong>
+                                    <small>Report #RP-024</small>
+                                </td>
+                                <td><span class="tag tag-red">PDF</span></td>
+                                <td>Ali Juwel</td>
+                                <td>Nov 10, 2026</td>
+                                <td><span class="tag tag-green">Shared</span></td>
+                                <td><button class="row-action">↓</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Index Recommendation Report</strong>
+                                    <small>Report #RP-023</small>
+                                </td>
+                                <td><span class="tag tag-blue">CSV</span></td>
+                                <td>Sarah Rahman</td>
+                                <td>Nov 09, 2026</td>
+                                <td><span class="tag tag-blue">Private</span></td>
+                                <td><button class="row-action">↓</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Security Analysis Report</strong>
+                                    <small>Report #RP-022</small>
+                                </td>
+                                <td><span class="tag tag-red">PDF</span></td>
+                                <td>Ali Juwel</td>
+                                <td>Nov 08, 2026</td>
+                                <td><span class="tag tag-green">Shared</span></td>
+                                <td><button class="row-action">↓</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <span>© 2026 QueryPilot. All rights reserved.</span>
+                <span>Built for smarter database performance.</span>
+            </footer>
+
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
