@@ -1,0 +1,8 @@
+(() => {
+ const DB_NAME="querypilot-local", DB_VERSION=1, STORE="state";
+ let dbPromise;
+ function openDB(){if(!("indexedDB" in window))return Promise.resolve(null);if(dbPromise)return dbPromise;dbPromise=new Promise(resolve=>{const req=indexedDB.open(DB_NAME,DB_VERSION);req.onupgradeneeded=()=>req.result.createObjectStore(STORE);req.onsuccess=()=>resolve(req.result);req.onerror=()=>resolve(null)});return dbPromise}
+ async function get(key){const db=await openDB();if(!db)return JSON.parse(localStorage.getItem("qp_"+key)||"null");return new Promise(resolve=>{const tx=db.transaction(STORE,"readonly"),r=tx.objectStore(STORE).get(key);r.onsuccess=()=>resolve(r.result??null);r.onerror=()=>resolve(null)})}
+ async function set(key,value){const db=await openDB();if(!db){localStorage.setItem("qp_"+key,JSON.stringify(value));return}return new Promise(resolve=>{const tx=db.transaction(STORE,"readwrite");tx.objectStore(STORE).put(value,key);tx.oncomplete=resolve;tx.onerror=()=>{localStorage.setItem("qp_"+key,JSON.stringify(value));resolve()}})}
+ window.QPStore={get,set,async init(){let state=await get("state");if(!state){state={...structuredClone(QP_SAMPLE),analyses:[],reports:[],comments:[],logs:[],settings:{theme:"light",compact:false},activeProject:"p1",loggedIn:true};await set("state",state)}return state},async reset(){await set("state",{...structuredClone(QP_SAMPLE),analyses:[],reports:[],comments:[],logs:[],settings:{theme:"light",compact:false},activeProject:"p1",loggedIn:true})}};
+})();

@@ -1,0 +1,1 @@
+window.QPRouter={page:"dashboard",go(page){this.page=page;QPUI.render();history.replaceState(null,"","#"+page)},fromHash(){const p=location.hash.slice(1);return QPUI.pages[p]?p:"dashboard"}};

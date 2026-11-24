@@ -1,0 +1,1 @@
+window.QPAuth={login(name,email){QPDB.state.user={name,email};QPDB.state.loggedIn=true;QPDB.save()},logout(){QPDB.state.loggedIn=false;QPDB.save();QPUI.toast("Demo session signed out")},register(name,email){this.login(name,email)}};
